@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hue Dashboard — Your lights, always in place</title>
+<style>
+  :root{
+    --ink:#0a0916;
+    --ember:#e2823d;
+    --paper:#eeeafb;
+    --muted:#9a92bd;
+    --line:rgba(238,234,251,0.14);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  /* Horizontal centering only — vertical spacing belongs to each section,
+     so it can never be clobbered by this class's specificity. */
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  /* Hero: a full-bleed photo with the title/CTA overlaid in the plain
+     wall space above and below the iPad in the shot. Everything here is
+     positioned as a percentage of the image's own box, so as the photo
+     scales with the viewport, the safe zone around the iPad scales with
+     it and the overlay tracks along — it never creeps onto the device. */
+  .hero{
+    position:relative;
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    aspect-ratio:2752/2064;
+    min-height:350px;
+    overflow:hidden;
+  }
+
+  .hero-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    /* The iPad sits well right-of-center in the photo — when the min-height
+       forces a horizontal crop on narrow screens, bias toward the right
+       so the device stays fully in frame instead of getting clipped. */
+    object-position:80% center;
+    display:block;
+  }
+
+  /* Starts at the image's true top edge (not at .hero-top's own offset)
+     so the fade has no hard seam — it just softens the photo behind the title. */
+  .hero-fade-top{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:32%;
+    background:linear-gradient(180deg, rgba(10,9,22,0.6) 0%, rgba(10,9,22,0) 100%);
+  }
+
+  .hero-top{
+    position:absolute;
+    top:6%;
+    left:0;
+    right:0;
+    text-align:center;
+    line-height:1.4;
+  }
+
+  .hero-bottom{
+    position:absolute;
+    bottom:5%;
+    left:0;
+    right:0;
+    text-align:center;
+    line-height:1.4;
+  }
+
+  h1{
+    font-size:26px;
+    line-height:1.05;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin-bottom:8px;
+    text-shadow:0 2px 16px rgba(0,0,0,0.65);
+  }
+
+  .tagline{
+    font-size:13px;
+    font-weight:500;
+    color:var(--ember);
+    text-shadow:0 2px 12px rgba(0,0,0,0.65);
+  }
+
+  .btn{
+    display:inline-block;
+  }
+  .btn img{
+    height:48px;
+    display:block;
+    margin:0 auto;
+  }
+
+  .btn-note{
+    display:block;
+    margin-top:10px;
+    font-size:12px;
+    color:var(--paper);
+    text-shadow:0 2px 10px rgba(0,0,0,0.8);
+  }
+
+  /* Features */
+  main.wrap{
+    padding-top:56px;
+    padding-bottom:96px;
+  }
+
+  .features{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px 24px;
+  }
+
+  .features h3{
+    font-size:15px;
+    font-weight:600;
+    color:var(--paper);
+    margin-bottom:4px;
+  }
+
+  .features p{
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  @media (max-width:520px){
+    .features{grid-template-columns:1fr;}
+  }
+
+  footer.wrap{
+    border-top:1px solid var(--line);
+    padding-top:40px;
+    padding-bottom:40px;
+    text-align:center;
+  }
+
+  footer .links{
+    font-size:13px;
+  }
+  footer .links a{
+    color:var(--muted);
+    text-decoration:none;
+  }
+  footer .links a:hover{
+    color:var(--paper);
+  }
+  footer .links span{
+    color:var(--line);
+    margin:0 8px;
+  }
+
+  footer .legal{
+    margin-top:14px;
+    font-size:11px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-img" src="header.jpg" alt="Hue Dashboard running on a wall mounted iPad in a living room lit with colored Philips Hue lighting">
+
+  <div class="hero-fade-top"></div>
+  <div class="hero-top">
+    <h1>Hue Dashboard</h1>
+    <p class="tagline">Your lights, always in place</p>
+  </div>
+
+  <div class="hero-bottom">
+    <a class="btn" href="#" aria-label="Pre-order on the App Store">
+      <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-pre-order-on-the-app-store.svg" alt="Pre-order on the App Store">
+    </a>
+    <span class="btn-note">Coming soon. The store link will be added once the listing is live.</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="features">
+    <div><h3>Fixed grid layout</h3><p>Your tiles stay exactly where you put them. Nothing shuffles around when you add a new light.</p></div>
+    <div><h3>Tiles for lights, scenes and rooms</h3><p>Build a dashboard out of the things you actually control day to day.</p></div>
+    <div><h3>Made for wall mounted use</h3><p>Glanceable from across the room, on an iPad mounted on the wall or the fridge.</p></div>
+    <div><h3>Just as at home on iPhone</h3><p>The same fixed grid, sized for one thumb, whenever you are away from the wall.</p></div>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p class="links"><a href="/huedashboard/support/">Support</a><span>|</span><a href="/huedashboard/privacy/">Privacy</a></p>
+  <p class="legal">Not affiliated with Signify or Philips Hue. Requires a Philips Hue Bridge and Hue lights.</p>
+</footer>
+
+</body>
+</html>
