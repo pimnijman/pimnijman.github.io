@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pim Nijman</title>
+<style>
+  :root{
+    --bg:#faf7f2;
+    --bg-2:#ffffff;
+    --ink:#1a1523;
+    --muted:#6f6680;
+    --line:rgba(26,21,35,0.08);
+    --card-shadow:0 1px 2px rgba(26,21,35,0.04), 0 8px 24px rgba(26,21,35,0.06);
+    --accent:#ff5a3c;
+    --placeholder:#e4e0ea;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#100c1a;
+      --bg-2:#2a2242;
+      --ink:#f4f0fb;
+      --muted:#a99fc2;
+      --line:rgba(244,240,251,0.14);
+      --card-shadow:0 1px 2px rgba(0,0,0,0.3), 0 10px 28px rgba(0,0,0,0.5);
+      --accent:#ff8266;
+      --placeholder:#372f47;
+    }
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:
+      radial-gradient(560px 360px at 88% -8%, color-mix(in srgb, #ff9770 24%, transparent), transparent),
+      radial-gradient(560px 360px at -10% 12%, color-mix(in srgb, #70d6ff 24%, transparent), transparent),
+      var(--bg);
+    color:var(--ink);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  header.wrap{
+    padding-top:80px;
+    padding-bottom:44px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  h1{
+    font-size:34px;
+    font-weight:800;
+    letter-spacing:-0.03em;
+  }
+
+  .linkedin{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    box-shadow:var(--card-shadow);
+    font-size:14px;
+    font-weight:700;
+    color:var(--ink);
+    text-decoration:none;
+    white-space:nowrap;
+    transition:transform 0.15s ease;
+  }
+  .linkedin:hover{
+    transform:translateY(-2px);
+  }
+
+  main.wrap{
+    padding-bottom:100px;
+  }
+
+  main h2{
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--muted);
+    margin-bottom:20px;
+  }
+
+  .apps{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .app{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:22px;
+    border-radius:20px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    box-shadow:var(--card-shadow);
+    transition:transform 0.15s ease;
+  }
+  .app:hover{
+    transform:translateY(-3px);
+  }
+
+  .app-icon{
+    flex-shrink:0;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    overflow:hidden;
+  }
+
+  .app-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .app-icon-placeholder{
+    background:var(--placeholder);
+  }
+
+  .app-info{
+    flex:1;
+    min-width:0;
+  }
+
+  .app-info h3{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:3px;
+  }
+
+  .app-info p{
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .app-cta{
+    flex-shrink:0;
+  }
+
+  .app-cta img{
+    height:40px;
+    display:block;
+  }
+
+  .app-link{
+    font-weight:700;
+    color:var(--accent);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .app-link:hover{
+    text-decoration:underline;
+  }
+
+  @media (max-width:560px){
+    .app{
+      flex-wrap:wrap;
+    }
+    .app-cta{
+      width:100%;
+      padding-left:70px;
+    }
+  }
+
+  footer.wrap{
+    padding-top:24px;
+    padding-bottom:48px;
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>Pim Nijman</h1>
+  <a class="linkedin" href="https://nl.linkedin.com/in/pimnijman" target="_blank" rel="noopener">LinkedIn ↗</a>
+</header>
+
+<main class="wrap">
+  <h2>Apps</h2>
+  <div class="apps">
+
+    <div class="app">
+      <div class="app-icon app-icon-placeholder"></div>
+      <div class="app-info">
+        <h3>Hue Dashboard</h3>
+        <p>A fixed grid dashboard for your Philips Hue lights, built for a wall mounted iPad. <a class="app-link" href="https://pimnijman.nl/huedashboard/">Learn more</a></p>
+      </div>
+      <div class="app-cta"></div>
+    </div>
+
+    <div class="app">
+      <div class="app-icon"><img src="icons/hue-widgets.png" alt=""></div>
+      <div class="app-info">
+        <h3>Hue Widgets</h3>
+        <p>Control your Philips Hue lights and scenes right from your Home Screen.</p>
+      </div>
+      <div class="app-cta">
+        <a href="https://apps.apple.com/nl/app/hue-widgets/id1547114265" target="_blank" rel="noopener" aria-label="Download Hue Widgets on the App Store">
+          <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="app-icon"><img src="icons/hue-for-watch.png" alt=""></div>
+      <div class="app-info">
+        <h3>Hue for Watch</h3>
+        <p>Control your Philips Hue lights and activate scenes straight from your wrist.</p>
+      </div>
+      <div class="app-cta">
+        <a href="https://apps.apple.com/nl/app/hue-for-watch/id983410597" target="_blank" rel="noopener" aria-label="Download Hue for Watch on the App Store">
+          <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="app-icon"><img src="icons/wave.png" alt=""></div>
+      <div class="app-info">
+        <h3>Wave &bull; Weeëntimer</h3>
+        <p>A fresh, modern contraction timer to help you stay calm and focused through labor.</p>
+      </div>
+      <div class="app-cta">
+        <a href="https://apps.apple.com/nl/app/wave-weeëntimer/id6448851437" target="_blank" rel="noopener" aria-label="Download Wave on the App Store">
+          <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>&copy; 2026 Pim Nijman</p>
+</footer>
+
+</body>
+</html>
